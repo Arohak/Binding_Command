@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:objc_associatedObject_test.xcodeproj">
+      location = "self:/Users/arahakobyan/Desktop/objc_associatedObject_test/Binding_Command.xcodeproj">
    </FileRef>
 </Workspace>
