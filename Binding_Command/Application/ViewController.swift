@@ -11,11 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     private let string: Box<String?> = Box("Poxos")
 
-    private lazy var oneCommand = Command { [weak self] sender  in
+    private lazy var oneCommand = Command { [weak self] sender in
         self?.string.value = "Ara"
     }
     
-    private lazy var twoCommand = Command { [weak self] sender  in
+    private lazy var twoCommand = Command { [weak self] sender in
         self?.string.value = "Armen"
     }
 
@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         let view = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
         view.backgroundColor = .red
         view.textAlignment = .center
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -42,13 +43,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configUI()
-
         configBindings()
-        setCommands()
+//        configCommands()
+        configActions()
     }
 }
 
+//MARK: - Configure
 extension ViewController {
     private func configUI() {
         view.backgroundColor = .blue
@@ -63,8 +66,20 @@ extension ViewController {
 //        string ~>>> label
     }
     
-    private func setCommands() {
+    private func configCommands() {
         oneButton |>| oneCommand
         twoButton |>| twoCommand
+    }
+    
+    private func configActions() {
+        label.on.tap { _ in
+            self.string.value = "Hello"
+        }
+        oneButton.on.tap { _ in
+            self.string.value = "Ara"
+        }
+        twoButton.on.tap { _ in 
+            self.string.value = "Armen"
+        }
     }
 }

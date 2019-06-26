@@ -9,22 +9,20 @@
 import UIKit
 
 extension UIButton: Commander {
-    typealias CommandType = ()
-
-    private struct AssociatedKeys {
-        static var command = "command"
+    private struct Associated {
+        static var key = "command"
     }
     
     func setCommand(_ command: Command) {
-        if let _ = objc_getAssociatedObject(self, &AssociatedKeys.command) {
+        if objc_getAssociatedObject(self, &Associated.key) != nil {
             fatalError("Multiple assigment to command")
         }
-        objc_setAssociatedObject(self, &AssociatedKeys.command, command, .OBJC_ASSOCIATION_ASSIGN)
+        objc_setAssociatedObject(self, &Associated.key, command, .OBJC_ASSOCIATION_ASSIGN)
         addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     @objc func buttonTapped(sender: AnyObject?) {
-        if let c = objc_getAssociatedObject(self, &AssociatedKeys.command) as? Command {
+        if let c = objc_getAssociatedObject(self, &Associated.key) as? Command {
             c.execute(sender)
         }
     }

@@ -14,10 +14,13 @@
 		12E0249222C1F5A700CD82C2 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0249122C1F5A700CD82C2 /* Operators.swift */; };
 		12E0249422C1F6A000CD82C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0249322C1F6A000CD82C2 /* ViewController.swift */; };
 		12E0249A22C2421500CD82C2 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0249922C2421500CD82C2 /* UILabel+Ext.swift */; };
-		12E0249E22C242A600CD82C2 /* BindableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0249D22C242A600CD82C2 /* BindableObject.swift */; };
+		12E0249E22C242A600CD82C2 /* ClosureAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0249D22C242A600CD82C2 /* ClosureAware.swift */; };
 		12E024A022C2555B00CD82C2 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0249F22C2555B00CD82C2 /* UIButton+Ext.swift */; };
 		12E024A222C2565400CD82C2 /* Commander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E024A122C2565400CD82C2 /* Commander.swift */; };
 		12E024A422C2568000CD82C2 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E024A322C2568000CD82C2 /* Command.swift */; };
+		12E024A822C34B7A00CD82C2 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E024A722C34B7A00CD82C2 /* Container.swift */; };
+		12E024AA22C357A800CD82C2 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E024A922C357A800CD82C2 /* Bindable.swift */; };
+		12E024AC22C3582600CD82C2 /* Container+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E024AB22C3582600CD82C2 /* Container+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +33,13 @@
 		12E0249122C1F5A700CD82C2 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		12E0249322C1F6A000CD82C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		12E0249922C2421500CD82C2 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
-		12E0249D22C242A600CD82C2 /* BindableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableObject.swift; sourceTree = "<group>"; };
+		12E0249D22C242A600CD82C2 /* ClosureAware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureAware.swift; sourceTree = "<group>"; };
 		12E0249F22C2555B00CD82C2 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		12E024A122C2565400CD82C2 /* Commander.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commander.swift; sourceTree = "<group>"; };
 		12E024A322C2568000CD82C2 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		12E024A722C34B7A00CD82C2 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		12E024A922C357A800CD82C2 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		12E024AB22C3582600CD82C2 /* Container+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,7 @@
 				12E024A322C2568000CD82C2 /* Command.swift */,
 				12E0249122C1F5A700CD82C2 /* Operators.swift */,
 				12B4AEED22C10B36003BD6C3 /* PropertyModifier.swift */,
+				12E024A722C34B7A00CD82C2 /* Container.swift */,
 				12E0249C22C2429100CD82C2 /* Protocols */,
 				12E0249822C2420200CD82C2 /* Ext */,
 			);
@@ -109,6 +116,7 @@
 			children = (
 				12E0249922C2421500CD82C2 /* UILabel+Ext.swift */,
 				12E0249F22C2555B00CD82C2 /* UIButton+Ext.swift */,
+				12E024AB22C3582600CD82C2 /* Container+Ext.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -116,8 +124,9 @@
 		12E0249C22C2429100CD82C2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				12E0249D22C242A600CD82C2 /* BindableObject.swift */,
+				12E024A922C357A800CD82C2 /* Bindable.swift */,
 				12E024A122C2565400CD82C2 /* Commander.swift */,
+				12E0249D22C242A600CD82C2 /* ClosureAware.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -192,6 +201,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				12E0249422C1F6A000CD82C2 /* ViewController.swift in Sources */,
+				12E024A822C34B7A00CD82C2 /* Container.swift in Sources */,
+				12E024AA22C357A800CD82C2 /* Bindable.swift in Sources */,
 				12B4AEEE22C10B36003BD6C3 /* PropertyModifier.swift in Sources */,
 				12E0249022C1F57A00CD82C2 /* Box.swift in Sources */,
 				12E024A422C2568000CD82C2 /* Command.swift in Sources */,
@@ -199,7 +210,8 @@
 				12E024A222C2565400CD82C2 /* Commander.swift in Sources */,
 				12B4AED822C0BF1E003BD6C3 /* AppDelegate.swift in Sources */,
 				12E0249A22C2421500CD82C2 /* UILabel+Ext.swift in Sources */,
-				12E0249E22C242A600CD82C2 /* BindableObject.swift in Sources */,
+				12E024AC22C3582600CD82C2 /* Container+Ext.swift in Sources */,
+				12E0249E22C242A600CD82C2 /* ClosureAware.swift in Sources */,
 				12E0249222C1F5A700CD82C2 /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

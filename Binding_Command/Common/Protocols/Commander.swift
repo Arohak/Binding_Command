@@ -7,6 +7,5 @@
 //
 
 protocol Commander {
-    associatedtype CommandType
     func setCommand(_ command: Command)
 }

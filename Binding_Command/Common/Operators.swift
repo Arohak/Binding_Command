@@ -31,14 +31,14 @@ func ->>> <T>(left: Box<T>, right: PropertyModifier<T>) {
 }
 
 // Advanced
-func ~>> <T, B: BindableObject>(left: Box<T>, right: B) where B.DefaulPropertyType == T {
-    left.addListener(listener: right.defaulProperty.modifier)
+func ~>> <T, B: Bindable>(left: Box<T>, right: B) where B.PropertyType == T {
+    left.addListener(listener: right.property.modifier)
 }
-func ~>>> <T, B: BindableObject>(left: Box<T>, right: B) where B.DefaulPropertyType == T {
-    left.bind(listener: right.defaulProperty.modifier)
+func ~>>> <T, B: Bindable>(left: Box<T>, right: B) where B.PropertyType == T {
+    left.bind(listener: right.property.modifier)
 }
 
 // Command
-func |>| <T, B: Commander>(left: B, right: Command) where B.CommandType == T {
+func |>| <T: Commander>(left: T, right: Command) {
     left.setCommand(right)
 }

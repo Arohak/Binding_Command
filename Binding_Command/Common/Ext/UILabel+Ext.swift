@@ -8,38 +8,49 @@
 
 import UIKit
 
-extension UILabel: BindableObject {
-    typealias DefaulPropertyType = String?
+extension UILabel: Bindable {
+    typealias PropertyType = String?
 
-    private struct AssociatedKeys {
-        static var modifier = "modifier"
-        static var notifier = "notifier"
+    private struct Associated {
+        static var key = "modifier"
     }
     
-    var defaulProperty: PropertyModifier<DefaulPropertyType> {
+    var property: PropertyModifier<PropertyType> {
         return textModifier
     }
-    
+
     var textModifier: PropertyModifier<String?> {
-        if let pm = objc_getAssociatedObject(self, &AssociatedKeys.modifier) as? PropertyModifier<String?> {
+        if let pm = objc_getAssociatedObject(self, &Associated.key) as? PropertyModifier<String?> {
             return pm
         } else {
             let pm = PropertyModifier<String?> { [weak self] value in
                 self?.text = value
             }
-            objc_setAssociatedObject(self, &AssociatedKeys.modifier, pm, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &Associated.key, pm, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return pm
         }
     }
-    
-    //    var notifier: Notifier? {
-    //        get {
-    //            return objc_getAssociatedObject(self, &AssociatedKeys.notifier) as? Notifier
-    //        }
-    //        set {
-    //            if let value = newValue {
-    //                objc_setAssociatedObject(self, &AssociatedKeys.notifier, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-    //            }
-    //        }
-    //    }
 }
+
+//class On {
+//    func tap(_ closure: () -> Void) {}
+//    func tapRow(_ closure: () -> Void) {}
+//    func textChange(_ closure: () -> Void) {}
+//}
+//
+//extension NSObject {
+//    private struct AssociatedKeys {
+//        static var notifier = "notifier"
+//    }
+//    
+//    var on: On? {
+//        get {
+//            return objc_getAssociatedObject(self, &AssociatedKeys.notifier) as? On
+//        }
+//        set {
+//            if let value = newValue {
+//                objc_setAssociatedObject(self, &AssociatedKeys.notifier, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+//            }
+//        }
+//    }
+//}
