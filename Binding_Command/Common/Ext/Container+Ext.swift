@@ -20,16 +20,16 @@ public extension Container where Host: UIButton {
 }
 
 class ButtonTarget: NSObject {
-    static let uniqueId = "ffffff"
+    static let uniqueId = "button_unique_id"
     var action: Action?
     
     init(host: UIButton, action: @escaping Action) {
         super.init()
         self.action = action
-        host.addTarget(self, action: #selector(handleTap(_:)), for: .touchUpInside)
+        host.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
     }
     
-    @objc func handleTap(_ sender: AnyObject) {
+    @objc func handleTap(sender: AnyObject) {
         action?(sender)
     }
 }
@@ -43,16 +43,16 @@ public extension Container where Host: UILabel {
 }
 
 class LabelTarget: NSObject {
-    static let uniqueId = "aaaaaa"
+    static let uniqueId = "label_unique_id"
     var action: Action?
     
     init(host: UILabel, action: @escaping Action) {
         super.init()
         self.action = action
-        host.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
+        host.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
-    @objc func handleTap(_ sender: AnyObject) {
+    @objc func handleTap(sender: AnyObject) {
         action?(sender)
     }
 }

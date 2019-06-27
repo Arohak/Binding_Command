@@ -9,17 +9,11 @@
 import UIKit
 
 extension UILabel: Bindable {
-    typealias PropertyType = String?
-
     private struct Associated {
         static var key = "modifier"
     }
     
-    var property: PropertyModifier<PropertyType> {
-        return textModifier
-    }
-
-    var textModifier: PropertyModifier<String?> {
+    var property: PropertyModifier<String?> {
         if let pm = objc_getAssociatedObject(self, &Associated.key) as? PropertyModifier<String?> {
             return pm
         } else {

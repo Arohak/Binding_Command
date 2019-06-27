@@ -22,8 +22,8 @@ extension UIButton: Commander {
     }
     
     @objc func buttonTapped(sender: AnyObject?) {
-        if let c = objc_getAssociatedObject(self, &Associated.key) as? Command {
-            c.execute(sender)
+        if let command = objc_getAssociatedObject(self, &Associated.key) as? Command {
+            command.execute(sender)
         }
     }
 }
